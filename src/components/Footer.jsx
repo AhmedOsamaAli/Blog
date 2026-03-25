@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Github, Facebook, Linkedin, Mail, Rss, Code2 } from 'lucide-react'
+import { Github, Facebook, Linkedin, Mail, Globe, Rss, Code2 } from 'lucide-react'
 
 const SOCIAL = [
-  { href: 'https://github.com/AhmedOsamaAli',            icon: Github,   label: 'GitHub'   },
-  { href: 'https://www.facebook.com/AHMEDOSAMADIAB1/',   icon: Facebook, label: 'Facebook' },
-  { href: 'https://www.linkedin.com/in/ahmedosamadiab/', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'mailto:ahmedosamadiab@gmail.com',             icon: Mail,     label: 'Email'    },
+  { href: 'https://github.com/AhmedOsamaAli',            icon: Github,   label: 'GitHub'    },
+  { href: 'https://www.facebook.com/AHMEDOSAMADIAB1/',   icon: Facebook, label: 'Facebook'  },
+  { href: 'https://www.linkedin.com/in/ahmedosamadiab/', icon: Linkedin, label: 'LinkedIn'  },
+  { href: 'https://ahmedosamaali.github.io/Portfolio/',  icon: Globe,    label: 'Portfolio' },
+  { href: 'mailto:ahmedosamadiab@gmail.com',             icon: Mail,     label: 'Email'     },
 ]
 
 const NAV = [

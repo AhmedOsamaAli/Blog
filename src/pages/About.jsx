@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Facebook, Linkedin, Mail, MapPin, Trophy, Zap, Code } from 'lucide-react'
+import { Github, Facebook, Linkedin, Mail, Globe, MapPin, Trophy, Zap, Code } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const PAGE = {
@@ -23,10 +23,11 @@ const INTERESTS = [
 ]
 
 const SOCIAL = [
-  { href: 'https://github.com/AhmedOsamaAli',           icon: Github,   label: 'GitHub',   handle: '@AhmedOsamaAli'         },
-  { href: 'https://www.facebook.com/AHMEDOSAMADIAB1/',  icon: Facebook, label: 'Facebook', handle: 'Ahmed Osama'            },
-  { href: 'https://www.linkedin.com/in/ahmedosamadiab/', icon: Linkedin, label: 'LinkedIn', handle: 'Ahmed Osama'           },
-  { href: 'mailto:ahmedosamadiab@gmail.com',            icon: Mail,     label: 'Email',    handle: 'ahmedosamadiab@gmail.com' },
+  { href: 'https://github.com/AhmedOsamaAli',           icon: Github,   label: 'GitHub',    handle: '@AhmedOsamaAli'          },
+  { href: 'https://www.facebook.com/AHMEDOSAMADIAB1/',  icon: Facebook, label: 'Facebook',  handle: 'Ahmed Osama'             },
+  { href: 'https://www.linkedin.com/in/ahmedosamadiab/', icon: Linkedin, label: 'LinkedIn', handle: 'Ahmed Osama'             },
+  { href: 'https://ahmedosamaali.github.io/Portfolio/', icon: Globe,    label: 'Portfolio', handle: 'Portfolio'               },
+  { href: 'mailto:ahmedosamadiab@gmail.com',            icon: Mail,     label: 'Email',     handle: 'ahmedosamadiab@gmail.com' },
 ]
 
 export default function About() {
