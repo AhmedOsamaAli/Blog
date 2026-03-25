@@ -103,12 +103,14 @@ export default function Navbar() {
                   {label}
                 </Link>
               ))}
-              <Link
-                to="/admin"
-                className="px-4 py-3 rounded-xl text-sm font-medium text-violet-400 hover:text-violet-300 hover:bg-white/[0.03] flex items-center gap-2 transition-colors"
-              >
-                <PenLine size={15} /> {isAdmin ? 'Admin Dashboard' : 'Admin Login'}
-              </Link>
+              {isAdmin && (
+                <Link
+                  to="/admin"
+                  className="px-4 py-3 rounded-xl text-sm font-medium text-violet-400 hover:text-violet-300 hover:bg-white/[0.03] flex items-center gap-2 transition-colors"
+                >
+                  <PenLine size={15} /> Dashboard
+                </Link>
+              )}
             </nav>
           </motion.div>
         )}
