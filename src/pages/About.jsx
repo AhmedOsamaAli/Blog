@@ -98,8 +98,7 @@ export default function About() {
             </p>
             <p>
               I graduated from the German International University (GIU) with a Bachelor's in
-              Computer Science, majoring in Software Engineering — where I also spent time as a
-              teaching assistant and led the ACM ICPC community.
+              Computer Science, majoring in Software Engineering — where I also led the ACM ICPC community.
             </p>
             <p>
               My background is in competitive programming — I'm a 3x ICPC Regionalist, earned a

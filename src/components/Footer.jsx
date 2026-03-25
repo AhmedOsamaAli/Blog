@@ -12,7 +12,6 @@ const NAV = [
   { to: '/', label: 'Home' },
   { to: '/blog', label: 'Blog' },
   { to: '/about', label: 'About' },
-  { to: '/admin', label: 'Admin' },
 ]
 
 export default function Footer() {
@@ -78,13 +77,19 @@ export default function Footer() {
               Topics
             </p>
             <div className="flex flex-col gap-2.5">
-              {['Technology', 'Career', 'Personal', 'Tutorial', 'Thoughts'].map(t => (
+              {[
+                { label: 'Technology', key: 'tech' },
+                { label: 'Career',     key: 'career' },
+                { label: 'Personal',   key: 'personal' },
+                { label: 'Tutorial',   key: 'tutorial' },
+                { label: 'Thoughts',   key: 'thoughts' },
+              ].map(({ label, key }) => (
                 <Link
-                  key={t}
-                  to={`/blog?category=${t.toLowerCase()}`}
+                  key={key}
+                  to={`/blog?category=${key}`}
                   className="text-sm text-slate-500 hover:text-slate-300 transition-colors"
                 >
-                  {t}
+                  {label}
                 </Link>
               ))}
             </div>

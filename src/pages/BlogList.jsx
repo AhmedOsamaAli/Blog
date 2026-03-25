@@ -26,8 +26,11 @@ export default function BlogList() {
   const all = publishedPosts()
   const catParam = searchParams.get('category') || 'all'
 
-  // Reset page when filter/search changes
-  useEffect(() => setPage(1), [search, catParam])
+  // Reset page + scroll to top when filter/search changes
+  useEffect(() => {
+    setPage(1)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [search, catParam])
 
   const counts = useMemo(() => {
     const c = {}
