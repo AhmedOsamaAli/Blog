@@ -97,6 +97,11 @@ export default function About() {
               my bachelor's thesis on AI-driven research tools.
             </p>
             <p>
+              I graduated from the German International University (GIU) with a Bachelor's in
+              Computer Science, majoring in Software Engineering — where I also spent time as a
+              teaching assistant and led the ACM ICPC community.
+            </p>
+            <p>
               My background is in competitive programming — I'm a 3x ICPC Regionalist, earned a
               bronze medal at the Egyptian Olympiad in Informatics, and have solved 4000+ problems
               across Codeforces and LeetCode. That foundation shapes how I approach engineering:
