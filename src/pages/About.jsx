@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Twitter, Linkedin, Mail, MapPin, Coffee, Zap, BookOpen } from 'lucide-react'
+import { Github, Facebook, Linkedin, Mail, MapPin, Trophy, Zap, Code } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const PAGE = {
@@ -10,22 +10,23 @@ const PAGE = {
 }
 
 const SKILLS = [
-  'TypeScript', 'React', 'Node.js', 'Python',
-  'System Design', 'Cloud (Azure/AWS)', 'CI/CD', 'PostgreSQL',
+  'Python', 'TypeScript', 'C/C++', 'Kotlin',
+  'React', 'Node.js', 'Go', 'FastAPI',
+  'PostgreSQL', 'Docker', 'Azure', 'Neo4j',
 ]
 
 const INTERESTS = [
-  { icon: Coffee, label: 'Coffee snob (pour-over, always)' },
-  { icon: BookOpen, label: 'Reading: philosophy & sci-fi' },
-  { icon: Zap, label: 'Open-source contributions' },
+  { icon: Trophy, label: 'Competitive programming — 4000+ problems solved' },
+  { icon: Code, label: '3x ICPC Regionalist · EOI Bronze Medalist' },
+  { icon: Zap, label: 'Open-source builder & ACM ICPC coach' },
   { icon: MapPin, label: 'Cairo, Egypt 🇪🇬' },
 ]
 
 const SOCIAL = [
-  { href: 'https://github.com/AhmedOsamaAli', icon: Github, label: 'GitHub',   handle: '@AhmedOsamaAli'  },
-  { href: 'https://twitter.com/AhmedOsamaAli', icon: Twitter, label: 'Twitter', handle: '@AhmedOsamaAli' },
-  { href: 'https://linkedin.com/in/ahmedosamaali', icon: Linkedin, label: 'LinkedIn', handle: 'Ahmed Osama' },
-  { href: 'mailto:hi@ahmedosama.dev', icon: Mail, label: 'Email', handle: 'hi@ahmedosama.dev' },
+  { href: 'https://github.com/AhmedOsamaAli',           icon: Github,   label: 'GitHub',   handle: '@AhmedOsamaAli'         },
+  { href: 'https://www.facebook.com/AHMEDOSAMADIAB1/',  icon: Facebook, label: 'Facebook', handle: 'Ahmed Osama'            },
+  { href: 'https://www.linkedin.com/in/ahmedosamadiab/', icon: Linkedin, label: 'LinkedIn', handle: 'Ahmed Osama'           },
+  { href: 'mailto:ahmedosamadiab@gmail.com',            icon: Mail,     label: 'Email',    handle: 'ahmedosamadiab@gmail.com' },
 ]
 
 export default function About() {
@@ -59,7 +60,7 @@ export default function About() {
             <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 mb-1">
               Ahmed Osama
             </h1>
-            <p className="text-slate-400 text-base mb-4 font-medium">Software Engineer · Technical Writer · Builder</p>
+            <p className="text-slate-400 text-base mb-4 font-medium">Software Engineer @ Microsoft · Competitive Programmer · Builder</p>
 
             <div className="flex items-center gap-1.5 text-sm text-slate-500 mb-5">
               <MapPin size={13} className="text-slate-600" />
@@ -92,20 +93,22 @@ export default function About() {
           <h2 className="section-title text-xl mb-5">My Story</h2>
           <div className="space-y-4 text-slate-400 leading-[1.9] text-base">
             <p>
-              I'm a software engineer with a passion for building things that matter and explaining
-              concepts clearly. I started writing code as a teenager — mostly break-fix scripts and
-              small web experiments — and never really stopped. What began as curiosity turned into a
-              career, and then into a craft I genuinely love.
+              I'm a software engineer at Microsoft in Cairo, working on the Clarity analytics
+              platform — the SDK that quietly powers data collection across 2M+ websites. Before
+              that, I was an intern at the German Research Center for AI (DFKI) in Berlin, where I
+              built the architecture for DORIAN, an intelligent discovery assistant, and completed
+              my bachelor's thesis on AI-driven research tools.
             </p>
             <p>
-              Over the years I've worked across the stack — from React frontends and Node.js APIs to
-              cloud infrastructure and performance engineering. But the constant thread has been a
-              love of clarity: clean code, clear writing, honest communication.
+              My background is in competitive programming — I'm a 3x ICPC Regionalist, earned a
+              bronze medal at the Egyptian Olympiad in Informatics, and have solved 4000+ problems
+              across Codeforces and LeetCode. That foundation shapes how I approach engineering:
+              think precisely, optimize deliberately, and enjoy hard problems.
             </p>
             <p>
-              This blog is where I think out loud. About software, about building products, about
-              the strange and rewarding experience of being a human who spends a significant portion
-              of their life telling computers what to do.
+              This blog is where I write about what I'm building, learning, and thinking about —
+              software internals, system design, AI tools, career lessons, and whatever else seems
+              worth putting into words.
             </p>
           </div>
         </section>
@@ -150,15 +153,15 @@ export default function About() {
           <ul className="space-y-2 text-sm text-slate-400">
             <li className="flex items-start gap-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
-              Building products and writing about the lessons along the way
+              Software Engineer at Microsoft — working on the Clarity release pipeline (Azure)
             </li>
             <li className="flex items-start gap-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-2 flex-shrink-0" />
-              Deep-diving into distributed systems and LLM tooling
+              Building <a href="https://github.com/AhmedOsamaAli/pgwatch-copilot" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:underline">pgwatch AI Copilot</a> — natural language PostgreSQL analytics in Go
             </li>
             <li className="flex items-start gap-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 flex-shrink-0" />
-              Exploring the intersection of AI and developer productivity
+              Coaching competitive programming teams at GIU ACM ICPC community
             </li>
           </ul>
         </section>

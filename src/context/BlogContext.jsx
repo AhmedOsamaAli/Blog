@@ -38,7 +38,8 @@ export function BlogProvider({ children }) {
       .select('*')
       .order('created_at', { ascending: false })
 
-    if (!error && data) setPosts(data.map(toPost))
+    if (!error && data) setPosts(data.length > 0 ? data.map(toPost) : initialBlogs)
+    else setPosts(initialBlogs)
     setLoading(false)
   }, [])
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Github, Twitter, Linkedin } from 'lucide-react'
+import { ArrowRight, Github, Facebook, Linkedin } from 'lucide-react'
 
 const ROLES = [
   'Software Engineer',
@@ -113,9 +113,9 @@ export default function HeroSection() {
             <motion.div variants={ITEM} className="flex items-center gap-4 pt-2">
               <span className="text-xs text-slate-600 uppercase tracking-wider">Find me on</span>
               {[
-                { href: 'https://github.com/AhmedOsamaAli', icon: Github },
-                { href: 'https://twitter.com/AhmedOsamaAli', icon: Twitter },
-                { href: 'https://linkedin.com/in/ahmedosamaali', icon: Linkedin },
+                { href: 'https://github.com/AhmedOsamaAli',            icon: Github   },
+                { href: 'https://www.facebook.com/AHMEDOSAMADIAB1/',  icon: Facebook },
+                { href: 'https://www.linkedin.com/in/ahmedosamadiab/', icon: Linkedin },
               ].map(({ href, icon: Icon }) => (
                 <a
                   key={href}

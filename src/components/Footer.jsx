@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Github, Twitter, Linkedin, Mail, Rss, Code2 } from 'lucide-react'
+import { Github, Facebook, Linkedin, Mail, Rss, Code2 } from 'lucide-react'
 
 const SOCIAL = [
-  { href: 'https://github.com/AhmedOsamaAli', icon: Github,   label: 'GitHub'   },
-  { href: 'https://twitter.com/AhmedOsamaAli', icon: Twitter, label: 'Twitter'  },
-  { href: 'https://linkedin.com/in/ahmedosamaali', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'mailto:hi@ahmedosama.dev', icon: Mail, label: 'Email' },
+  { href: 'https://github.com/AhmedOsamaAli',            icon: Github,   label: 'GitHub'   },
+  { href: 'https://www.facebook.com/AHMEDOSAMADIAB1/',   icon: Facebook, label: 'Facebook' },
+  { href: 'https://www.linkedin.com/in/ahmedosamadiab/', icon: Linkedin, label: 'LinkedIn' },
+  { href: 'mailto:ahmedosamadiab@gmail.com',             icon: Mail,     label: 'Email'    },
 ]
 
 const NAV = [
@@ -31,7 +31,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-500 leading-relaxed">
-              Software engineer, writer, and builder. Sharing thoughts on tech, code, and life.
+              Software Engineer at Microsoft. Writing about systems, code, competitive programming, and the craft of building software.
             </p>
             {/* Social links */}
             <div className="flex items-center gap-3 mt-5">
