@@ -50,7 +50,7 @@ export default function BlogDetail() {
 
       {/* Hero */}
       <div className="relative">
-        {post.coverImage ? (
+        {post.coverImage && /^https:\/\//i.test(post.coverImage) ? (
           <div className="h-72 sm:h-96 relative overflow-hidden">
             <img
               src={post.coverImage}

@@ -128,7 +128,7 @@ function AuthWall() {
         <p className="text-center text-xs text-slate-600 mt-4">
           {isConfigured
             ? 'Credentials verified securely via Supabase Auth.'
-            : 'Password stored locally as a SHA-256 hash.'}
+            : 'Password stored locally as a PBKDF2 hash with salt.'}
         </p>
       </div>
     </div>

@@ -73,6 +73,10 @@ export default function BlogEditor() {
     if (!form.title.trim())   { setError('Title is required.');   return }
     if (!form.slug.trim())    { setError('Slug is required.');     return }
     if (!form.content.trim()) { setError('Content is required.'); return }
+    if (form.coverImage && !/^https:\/\//i.test(form.coverImage)) {
+      setError('Cover image URL must start with https://')
+      return
+    }
 
     const data = {
       ...form,
@@ -207,7 +211,7 @@ export default function BlogEditor() {
                   className="input"
                   placeholder="https://images.unsplash.com/…"
                 />
-                {form.coverImage && (
+                {form.coverImage && /^https:\/\//i.test(form.coverImage) && (
                   <img
                     src={form.coverImage}
                     alt="Cover preview"

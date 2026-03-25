@@ -5,9 +5,14 @@ import { supabase, isConfigured, toPost, toRow } from '../lib/supabase'
 const BlogContext = createContext(null)
 
 // ── localStorage keys (used only in offline/fallback mode) ───────────────────
-const POSTS_KEY   = 'pb_posts'
-const SESSION_KEY = 'pb_admin_auth'
-const HASH_KEY    = 'pb_admin_hash'
+const POSTS_KEY    = 'pb_posts'
+const SESSION_KEY  = 'pb_admin_auth'
+const HASH_KEY     = 'pb_admin_hash'
+const LOCKOUT_KEY  = 'pb_lockout'
+
+const MAX_ATTEMPTS    = 5
+const LOCKOUT_MS      = 15 * 60 * 1000  // 15 minutes
+const PBKDF2_ITERS    = 100_000
 
 export function BlogProvider({ children }) {
   const [posts, setPosts]       = useState([])
@@ -88,20 +93,43 @@ export function BlogProvider({ children }) {
   }, [posts, loading])
 
   // ── Offline-mode auth helpers ──────────────────────────────────────────────
-  const hashPass = async (pw) => {
-    const buf  = new TextEncoder().encode(pw)
-    const hash = await crypto.subtle.digest('SHA-256', buf)
-    return Array.from(new Uint8Array(hash))
-      .map(b => b.toString(16).padStart(2, '0'))
-      .join('')
+
+  // PBKDF2-based password hashing — saltHex is a 32-char hex string (16 bytes)
+  const hashPass = async (pw, saltHex) => {
+    const enc = new TextEncoder()
+    const keyMaterial = await crypto.subtle.importKey(
+      'raw', enc.encode(pw), { name: 'PBKDF2' }, false, ['deriveBits']
+    )
+    const saltBytes = new Uint8Array(saltHex.match(/.{2}/g).map(h => parseInt(h, 16)))
+    const bits = await crypto.subtle.deriveBits(
+      { name: 'PBKDF2', hash: 'SHA-256', salt: saltBytes, iterations: PBKDF2_ITERS },
+      keyMaterial, 256
+    )
+    return Array.from(new Uint8Array(bits)).map(b => b.toString(16).padStart(2, '0')).join('')
   }
 
   const setupPassword = async (pw) => {
-    const h = await hashPass(pw)
-    localStorage.setItem(HASH_KEY, h)
+    const saltBytes = crypto.getRandomValues(new Uint8Array(16))
+    const saltHex = Array.from(saltBytes).map(b => b.toString(16).padStart(2, '0')).join('')
+    const h = await hashPass(pw, saltHex)
+    localStorage.setItem(HASH_KEY, `${saltHex}:${h}`)
     setHasPassword(true)
     sessionStorage.setItem(SESSION_KEY, '1')
     setIsAdmin(true)
+  }
+
+  // ── Brute-force lockout helpers ────────────────────────────────────────────
+  const getLockout = () => {
+    try { return JSON.parse(localStorage.getItem(LOCKOUT_KEY)) ?? { failures: 0, until: 0 } }
+    catch { return { failures: 0, until: 0 } }
+  }
+
+  const recordFailure = () => {
+    const state = getLockout()
+    const failures = Date.now() < state.until ? state.failures + 1 : 1
+    const until    = failures >= MAX_ATTEMPTS ? Date.now() + LOCKOUT_MS : state.until
+    localStorage.setItem(LOCKOUT_KEY, JSON.stringify({ failures, until }))
+    return failures >= MAX_ATTEMPTS ? Math.ceil(LOCKOUT_MS / 60000) : null
   }
 
   // ── Unified login ──────────────────────────────────────────────────────────
@@ -109,12 +137,35 @@ export function BlogProvider({ children }) {
   // Offline mode:  { password }
   const login = async ({ email = '', password = '' }) => {
     if (!isConfigured) {
-      const h = await hashPass(password)
-      if (h === localStorage.getItem(HASH_KEY)) {
+      // Enforce lockout
+      const lockout = getLockout()
+      if (Date.now() < lockout.until) {
+        const mins = Math.ceil((lockout.until - Date.now()) / 60000)
+        return { error: `Too many failed attempts. Try again in ${mins} minute${mins !== 1 ? 's' : ''}.` }
+      }
+
+      const stored = localStorage.getItem(HASH_KEY)
+
+      // Migrate old unsalted SHA-256 hashes — force password reset
+      if (stored && !stored.includes(':')) {
+        localStorage.removeItem(HASH_KEY)
+        setHasPassword(false)
+        return { error: 'Your password needs to be reset (security upgrade). Please set a new password.' }
+      }
+
+      if (!stored) return { error: 'No password set.' }
+
+      const [saltHex, storedHash] = stored.split(':')
+      const h = await hashPass(password, saltHex)
+      if (h === storedHash) {
+        localStorage.removeItem(LOCKOUT_KEY)
         sessionStorage.setItem(SESSION_KEY, '1')
         setIsAdmin(true)
         return { error: null }
       }
+
+      const lockedMins = recordFailure()
+      if (lockedMins) return { error: `Too many failed attempts. Locked for ${lockedMins} minutes.` }
       return { error: 'Incorrect password.' }
     }
 

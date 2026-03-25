@@ -17,7 +17,7 @@ export default function BlogCard({ post, index = 0 }) {
         <article className="card card-hover overflow-hidden h-full flex flex-col">
           {/* Cover */}
           <div className="relative h-44 overflow-hidden">
-            {post.coverImage ? (
+            {post.coverImage && /^https:\/\//i.test(post.coverImage) ? (
               <img
                 src={post.coverImage}
                 alt={post.title}
