@@ -38,8 +38,22 @@ export function BlogProvider({ children }) {
       .select('*')
       .order('created_at', { ascending: false })
 
-    if (!error && data) setPosts(data.length > 0 ? data.map(toPost) : initialBlogs)
-    else setPosts(initialBlogs)
+    if (!error && data) {
+      if (data.length > 0) {
+        setPosts(data.map(toPost))
+      } else {
+        // Supabase is empty — seed initial posts into DB so CRUD works properly
+        const rows = initialBlogs.map(p => toRow(p))
+        const { data: seeded } = await supabase
+          .from('posts')
+          .insert(rows)
+          .select()
+        if (seeded) setPosts(seeded.map(toPost))
+        else setPosts([])
+      }
+    } else {
+      setPosts([])
+    }
     setLoading(false)
   }, [])
 
