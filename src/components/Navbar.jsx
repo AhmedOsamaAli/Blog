@@ -57,14 +57,16 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="flex items-center gap-2">
-          <Link
-            to="/admin"
-            title={isAdmin ? 'Admin Dashboard' : 'Admin'}
-            className={`btn-ghost ${isAdmin ? 'text-violet-400' : ''}`}
-          >
-            <PenLine size={16} />
-            <span className="hidden sm:inline">{isAdmin ? 'Dashboard' : 'Admin'}</span>
-          </Link>
+          {isAdmin && (
+            <Link
+              to="/admin"
+              title="Admin Dashboard"
+              className="btn-ghost text-violet-400"
+            >
+              <PenLine size={16} />
+              <span className="hidden sm:inline">Dashboard</span>
+            </Link>
+          )}
 
           {/* Mobile hamburger */}
           <button
