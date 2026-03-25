@@ -83,9 +83,9 @@ export default function HeroSection() {
             <motion.div variants={ITEM}>
               <p className="text-slate-500 text-lg font-medium mb-2">Hello, I'm</p>
               <h1 className="font-display font-extrabold leading-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)' }}>
-                <span className="gradient-text">Elsayed</span>
+                <span className="gradient-text">Ahmed</span>
                 <br />
-                <span className="text-slate-100">Ahmed</span>
+                <span className="text-slate-100">Osama</span>
               </h1>
             </motion.div>
 
@@ -113,9 +113,9 @@ export default function HeroSection() {
             <motion.div variants={ITEM} className="flex items-center gap-4 pt-2">
               <span className="text-xs text-slate-600 uppercase tracking-wider">Find me on</span>
               {[
-                { href: 'https://github.com/elsayedahmed', icon: Github },
-                { href: 'https://twitter.com/elsayedahmed', icon: Twitter },
-                { href: 'https://linkedin.com/in/elsayedahmed', icon: Linkedin },
+                { href: 'https://github.com/AhmedOsamaAli', icon: Github },
+                { href: 'https://twitter.com/AhmedOsamaAli', icon: Twitter },
+                { href: 'https://linkedin.com/in/ahmedosamaali', icon: Linkedin },
               ].map(({ href, icon: Icon }) => (
                 <a
                   key={href}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, PenLine, Rss } from 'lucide-react'
+import { Menu, X, PenLine, Code2 } from 'lucide-react'
 import { useBlog } from '../context/BlogContext'
 
 const NAV_LINKS = [
@@ -34,11 +34,11 @@ export default function Navbar() {
       <div className="section-container flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-white font-bold font-display text-sm shadow-lg shadow-violet-500/25 group-hover:shadow-violet-500/40 transition-shadow">
-            E
+          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-violet-500/25 group-hover:shadow-violet-500/40 transition-shadow">
+            <Code2 size={15} strokeWidth={2.5} />
           </span>
           <span className="font-display font-bold text-slate-200 group-hover:text-white transition-colors hidden sm:block">
-            Elsayed<span className="text-violet-400">.</span>
+            Ahmed<span className="text-violet-400">.</span>
           </span>
         </Link>
 

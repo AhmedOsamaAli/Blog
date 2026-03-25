@@ -22,10 +22,10 @@ const INTERESTS = [
 ]
 
 const SOCIAL = [
-  { href: 'https://github.com/elsayedahmed', icon: Github, label: 'GitHub',   handle: '@elsayedahmed'  },
-  { href: 'https://twitter.com/elsayedahmed', icon: Twitter, label: 'Twitter', handle: '@elsayedahmed' },
-  { href: 'https://linkedin.com/in/elsayedahmed', icon: Linkedin, label: 'LinkedIn', handle: 'Elsayed Ahmed' },
-  { href: 'mailto:hi@elsayed.dev', icon: Mail, label: 'Email', handle: 'hi@elsayed.dev' },
+  { href: 'https://github.com/AhmedOsamaAli', icon: Github, label: 'GitHub',   handle: '@AhmedOsamaAli'  },
+  { href: 'https://twitter.com/AhmedOsamaAli', icon: Twitter, label: 'Twitter', handle: '@AhmedOsamaAli' },
+  { href: 'https://linkedin.com/in/ahmedosamaali', icon: Linkedin, label: 'LinkedIn', handle: 'Ahmed Osama' },
+  { href: 'mailto:hi@ahmedosama.dev', icon: Mail, label: 'Email', handle: 'hi@ahmedosama.dev' },
 ]
 
 export default function About() {
@@ -39,9 +39,15 @@ export default function About() {
           <div className="relative flex-shrink-0">
             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl
               bg-gradient-to-br from-violet-600 via-purple-600 to-cyan-500
-              flex items-center justify-center text-5xl font-display font-bold text-white
+              flex items-center justify-center
               shadow-2xl shadow-violet-500/20">
-              EA
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
+                <path d="M14 32L26 18" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M14 32L26 46" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M50 32L38 18" stroke="rgba(255,255,255,0.6)" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M50 32L38 46" stroke="rgba(255,255,255,0.6)" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M34 16L30 48" stroke="rgba(255,255,255,0.85)" strokeWidth="3.5" strokeLinecap="round"/>
+              </svg>
             </div>
             {/* Online dot */}
             <span className="absolute bottom-2 right-2 w-4 h-4 bg-emerald-400 rounded-full border-2 border-dark-900 shadow-md" />
@@ -51,7 +57,7 @@ export default function About() {
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-violet-500 mb-2 block">About me</span>
             <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 mb-1">
-              Elsayed Ahmed
+              Ahmed Osama
             </h1>
             <p className="text-slate-400 text-base mb-4 font-medium">Software Engineer · Technical Writer · Builder</p>
 

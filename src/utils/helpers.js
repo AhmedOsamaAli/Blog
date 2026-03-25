@@ -67,7 +67,7 @@ export const CATEGORIES = {
     gradient: 'from-violet-600/40 via-purple-700/30 to-fuchsia-700/40',
   },
   career: {
-    label: 'Career',
+    label: 'Career & Growth',
     textClass: 'text-orange-400',
     bgClass: 'bg-orange-400/10 border-orange-400/20',
     dotColor: '#fb923c',

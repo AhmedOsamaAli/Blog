@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Github, Twitter, Linkedin, Mail, Rss } from 'lucide-react'
+import { Github, Twitter, Linkedin, Mail, Rss, Code2 } from 'lucide-react'
 
 const SOCIAL = [
-  { href: 'https://github.com/elsayedahmed', icon: Github,   label: 'GitHub'   },
-  { href: 'https://twitter.com/elsayedahmed', icon: Twitter, label: 'Twitter'  },
-  { href: 'https://linkedin.com/in/elsayedahmed', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'mailto:hi@elsayed.dev', icon: Mail, label: 'Email' },
+  { href: 'https://github.com/AhmedOsamaAli', icon: Github,   label: 'GitHub'   },
+  { href: 'https://twitter.com/AhmedOsamaAli', icon: Twitter, label: 'Twitter'  },
+  { href: 'https://linkedin.com/in/ahmedosamaali', icon: Linkedin, label: 'LinkedIn' },
+  { href: 'mailto:hi@ahmedosama.dev', icon: Mail, label: 'Email' },
 ]
 
 const NAV = [
@@ -23,11 +23,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="max-w-xs">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-white font-bold font-display text-sm">
-                E
+              <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-white">
+                <Code2 size={15} strokeWidth={2.5} />
               </span>
               <span className="font-display font-bold text-slate-200">
-                Elsayed<span className="text-violet-400">.</span>
+                Ahmed<span className="text-violet-400">.</span>
               </span>
             </Link>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-600">
-          <p>© {new Date().getFullYear()} Elsayed Ahmed. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ahmed Osama. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
             <Rss size={11} className="text-violet-500" />
             Built with React &amp; deployed on GitHub Pages
