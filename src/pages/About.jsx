@@ -57,7 +57,7 @@ export default function About() {
             <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 mb-1">
               Ahmed Osama
             </h1>
-            <p className="text-slate-400 text-base mb-4 font-medium">SWE @ Microsoft &middot; Ex-DFKI &middot; CS Graduate &middot; Several Projects Shipped</p>
+            <p className="text-slate-400 text-base mb-4 font-medium">SWE @ Microsoft &middot; Ex-DFKI &middot; 2x ACPC</p>
 
             <div className="flex items-center gap-1.5 text-sm text-slate-500 mb-5">
               <MapPin size={13} className="text-slate-600" />
