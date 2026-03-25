@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-900 text-slate-200 antialiased;
+    font-feature-settings: 'liga' 1, 'kern' 1;
+  }
+
+  ::selection {
+    @apply bg-violet-600/40 text-violet-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-violet-700/60 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-violet-600;
+  }
+}
+
+@layer components {
+  /* ── Text ── */
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-dark-700/60 border border-white/[0.06] rounded-2xl backdrop-blur-sm;
+  }
+  .card-hover {
+    @apply transition-all duration-300
+      hover:border-violet-500/25 hover:shadow-xl hover:shadow-violet-500/[0.08]
+      hover:-translate-y-1;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3
+      bg-gradient-to-r from-violet-600 to-violet-500
+      hover:from-violet-500 hover:to-purple-500
+      text-white font-semibold rounded-xl
+      transition-all duration-300
+      shadow-lg shadow-violet-600/20 hover:shadow-violet-500/35
+      hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3
+      bg-white/[0.04] hover:bg-white/[0.08]
+      border border-white/[0.08] hover:border-white/[0.16]
+      text-slate-300 hover:text-slate-100 font-semibold rounded-xl
+      transition-all duration-300;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2
+      text-slate-400 hover:text-slate-100
+      hover:bg-white/[0.05] rounded-lg
+      transition-all duration-200 text-sm font-medium;
+  }
+
+  /* ── Nav ── */
+  .nav-link {
+    @apply relative text-slate-400 hover:text-slate-100 font-medium text-sm
+      transition-colors duration-200;
+  }
+  .nav-link-active {
+    @apply text-slate-100;
+  }
+  .nav-link-active::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 right-0 h-px
+      bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full;
+  }
+
+  /* ── Glass navbar ── */
+  .glass-nav {
+    @apply bg-dark-900/80 backdrop-blur-xl border-b border-white/[0.05];
+  }
+
+  /* ── Section ── */
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-title {
+    @apply font-display font-bold text-slate-100;
+  }
+
+  /* ── Badge / pill ── */
+  .category-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1
+      rounded-full text-xs font-semibold border
+      transition-colors duration-200;
+  }
+
+  /* ── Input ── */
+  .input {
+    @apply w-full bg-dark-700 border border-white/[0.08]
+      focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20
+      rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500
+      outline-none transition-all duration-200 text-sm;
+  }
+  .textarea {
+    @apply input resize-none;
+  }
+  .label {
+    @apply block text-sm font-medium text-slate-300 mb-1.5;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Background decorative elements
+───────────────────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.orb-violet {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.35), transparent 70%);
+  animation: float 9s ease-in-out infinite;
+}
+.orb-cyan {
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.25), transparent 70%);
+  animation: float 7s ease-in-out 3s infinite;
+}
+.orb-pink {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.2), transparent 70%);
+  animation: float 11s ease-in-out 5s infinite;
+}
+
+/* Subtle grid */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ─────────────────────────────────────────
+   Gradient border (hover reveal)
+───────────────────────────────────────── */
+.gradient-border-wrap {
+  position: relative;
+  border-radius: 16px;
+}
+.gradient-border-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.7), rgba(14, 165, 233, 0.7));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.gradient-border-wrap:hover::before {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────
+   Reading progress bar
+───────────────────────────────────────── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #7c3aed, #38bdf8);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
+}
+
+/* ─────────────────────────────────────────
+   Code blocks (used inside markdown)
+───────────────────────────────────────── */
+.code-wrap {
+  position: relative;
+}
+.code-wrap .copy-btn {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.code-wrap:hover .copy-btn {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────
+   Floating code card (hero)
+───────────────────────────────────────── */
+.code-card {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+.code-card .line-num {
+  user-select: none;
+  color: rgba(148, 163, 184, 0.3);
+  display: inline-block;
+  width: 1.5rem;
+  text-align: right;
+  margin-right: 1rem;
+}
+
+/* ─────────────────────────────────────────
+   Toggle (admin published switch)
+───────────────────────────────────────── */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  transition: .3s;
+}
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #64748b;
+  border-radius: 50%;
+  transition: .3s;
+}
+.toggle input:checked + .toggle-slider {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+  background: #8b5cf6;
+}
+
+/* ─────────────────────────────────────────
+   Prose overrides for markdown
+───────────────────────────────────────── */
+.prose-blog blockquote {
+  @apply border-l-4 border-violet-500 bg-violet-500/5 rounded-r-xl pl-6 pr-4 py-2 not-italic;
+}
+.prose-blog :where(h2):not(:where([class~="not-prose"] *)) {
+  @apply text-slate-100 font-display;
+}
+.prose-blog :where(h3):not(:where([class~="not-prose"] *)) {
+  @apply text-slate-200 font-display;
+}
+
+/* Keyframe for float is defined in tailwind.config.js */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
+}
+@keyframes blink {
+  from, to { opacity: 1; }
+  50%       { opacity: 0; }
+}
