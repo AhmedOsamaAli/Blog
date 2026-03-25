@@ -57,7 +57,7 @@ export default function About() {
             <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 mb-1">
               Ahmed Osama
             </h1>
-            <p className="text-slate-400 text-base mb-4 font-medium">Software Engineer @ Microsoft · Competitive Programmer · Builder</p>
+            <p className="text-slate-400 text-base mb-4 font-medium">SWE @ Microsoft &middot; Ex-DFKI &middot; CS Graduate &middot; Several Projects Shipped</p>
 
             <div className="flex items-center gap-1.5 text-sm text-slate-500 mb-5">
               <MapPin size={13} className="text-slate-600" />
@@ -150,15 +150,11 @@ export default function About() {
           <ul className="space-y-2 text-sm text-slate-400">
             <li className="flex items-start gap-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0" />
-              Software Engineer at Microsoft — working on the Clarity release pipeline (Azure)
+              Software Engineer at Microsoft — building reliable software at scale
             </li>
             <li className="flex items-start gap-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-2 flex-shrink-0" />
-              Building <a href="https://github.com/AhmedOsamaAli/pgwatch-copilot" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:underline">pgwatch AI Copilot</a> — natural language PostgreSQL analytics in Go
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 flex-shrink-0" />
-              Coaching competitive programming teams at GIU ACM ICPC community
+              Exploring agentic systems and AI-assisted developer tooling
             </li>
           </ul>
         </section>
