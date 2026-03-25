@@ -36,19 +36,16 @@ export default function About() {
 
         {/* Hero */}
         <div className="flex flex-col sm:flex-row gap-10 items-start mb-16">
-          {/* Avatar — gradient placeholder */}
+          {/* Avatar */}
           <div className="relative flex-shrink-0">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl
-              bg-gradient-to-br from-violet-600 via-purple-600 to-cyan-500
-              flex items-center justify-center
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden
+              ring-2 ring-violet-500/30
               shadow-2xl shadow-violet-500/20">
-              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
-                <path d="M14 32L26 18" stroke="white" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M14 32L26 46" stroke="white" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M50 32L38 18" stroke="rgba(255,255,255,0.6)" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M50 32L38 46" stroke="rgba(255,255,255,0.6)" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M34 16L30 48" stroke="rgba(255,255,255,0.85)" strokeWidth="3.5" strokeLinecap="round"/>
-              </svg>
+              <img
+                src={`${import.meta.env.BASE_URL}me.jpg`}
+                alt="Ahmed Osama"
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Online dot */}
             <span className="absolute bottom-2 right-2 w-4 h-4 bg-emerald-400 rounded-full border-2 border-dark-900 shadow-md" />

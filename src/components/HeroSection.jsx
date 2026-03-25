@@ -95,8 +95,9 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.p variants={ITEM} className="text-slate-400 text-base leading-relaxed max-w-lg">
-              I write about software engineering, the craft of clean code, and the human side of building
-              products. Occasionally, things that have nothing to do with computers.
+              Software Engineer at Microsoft · 3x ICPC Regionalist · Builder of
+              tools at the intersection of AI and developer productivity. I write
+              about systems, code, and the craft of engineering.
             </motion.p>
 
             {/* CTAs */}
